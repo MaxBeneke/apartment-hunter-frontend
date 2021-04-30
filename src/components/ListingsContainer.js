@@ -2,9 +2,7 @@ import React from "react";
 import ListingCard from "./ListingCard";
 import { Card, Segment } from "semantic-ui-react"
 
-const ListingsContainer = ( {user, setUser, listings, setListingSpotlight, removeFavorite, ludicrous, lightMode, egg} ) => {
-
-
+const ListingsContainer = ( {user, setUser, listings, setListingSpotlight, removeFavorite, lightMode} ) => {
 
     const cardComponents = listings?.map( listingObj=>  {
 
@@ -20,7 +18,7 @@ const ListingsContainer = ( {user, setUser, listings, setListingSpotlight, remov
 
     return(
     <div className='grid-container'> 
-        <Segment id={ egg ? ( lightMode ? 'segment-light' : 'segment-dark') : (ludicrous ? 'bgid' : 'alt-bgid')} style={{overflow: 'auto', maxHeight: '90vh', maxWidth: '50vw'}}>
+        <Segment id={lightMode ? 'segment-light' : 'segment-dark'} style={{overflow: 'auto', maxHeight: '90vh', maxWidth: '50vw'}}>
         {listings?.length === 0 && <h2>Sorry, no listings match your current filters. Try changing your settings</h2>}
             <Card.Group itemsPerRow={3}>
                 {cardComponents}

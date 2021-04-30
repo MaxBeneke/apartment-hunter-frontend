@@ -26,7 +26,6 @@ function App() {
   const [isHidden, setisHidden] = useState(true);
   const [ludicrous, setLudicrous] = useState(true);
   const [lightMode, setLightMode] = useState(true);
-  const [egg, setEgg] = useState(true)
   let history = useHistory();
   let location = useLocation();
   // console.log(user);
@@ -101,7 +100,7 @@ function App() {
 
 
   return (
-    <div className={ egg ? (lightMode ? 'light' : 'dark' ) : (ludicrous ? "App" : 'alt-app')}  id={ ludicrous ? 'background-id' : 'work'} >
+    <div className={lightMode ? 'light' : 'dark' }>
       {location.pathname !== "/login" && <SideIcon className="big bordered inverted black bars icon pointer" style={{marginLeft: '1em', marginTop: '.5em'}} onClick={()=>setVisible(!visible)}></SideIcon> }
       <Container onClick={() => setVisible(false)}>
         <h1 style={{color: lightMode ? 'black':'white', fontSize: '4em', padding: '0.5em'}}>APARTMENT//HUNTER</h1>
@@ -115,8 +114,6 @@ function App() {
                     setLudicrous={setLudicrous}
                     lightMode={lightMode}
                     setLightMode={setLightMode}
-                    egg={egg}
-                    setEgg={setEgg}
                 />
         <Switch>
           <Route exact path="/login">
@@ -148,10 +145,7 @@ function App() {
               setZipcode={setZipcode}
               center={center}
               removeFavorite={removeFavorite}
-              ludicrous={ludicrous}
-              setLudicrous={setLudicrous}
               lightMode={lightMode}
-              egg={egg}
             />
           </Route>
           <Route exact path="/favorites">
